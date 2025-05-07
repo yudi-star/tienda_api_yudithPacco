@@ -28,6 +28,12 @@ class Producto(models.Model):
         auto_now=True,
         help_text="Fecha de última actualización"
     )
+    
+    imagen = models.ImageField(
+        upload_to='productos/', 
+        null=True, blank=True,
+        help_text="Imagen del producto"
+    )
 
     class Meta:
         verbose_name = "Producto"
