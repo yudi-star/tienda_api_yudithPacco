@@ -9,9 +9,11 @@ class ProductoSerializer(serializers.ModelSerializer):
     Serializer para el modelo Producto.
     Permite la conversión de Productos a JSON y viceversa.
     """
+    imagen = serializers.ImageField(required=False, allow_null=True)
+    
     class Meta:
         model = Producto
-        fields = ['id', 'nombre', 'precio', 'stock', 'created_at', 'updated_at']
+        fields = ['id', 'nombre', 'precio', 'stock', 'imagen','created_at', 'updated_at']
         read_only_fields = ['created_at', 'updated_at']  # Estos campos no se pueden modificar
 
     def validate_stock(self, value):
